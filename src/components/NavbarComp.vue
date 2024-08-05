@@ -39,7 +39,7 @@
                 </div>
             </div>
             <a class="btn" href="#navbar" data-bs-toggle="offcanvas" role="button" aria-controls="navbar">
-                <img src="../assets/imgs/user-light.png" alt="User">
+                <img src="../assets/imgs/user-light.png" alt="User" width="22px">
             </a>
         </div>
     </nav>
