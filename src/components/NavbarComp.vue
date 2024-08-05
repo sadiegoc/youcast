@@ -4,7 +4,7 @@
             <router-link class="navbar-brand text-white" to="/home">YouCast</router-link>
             <form class="form d-flex flex-grow-1 dark-half rounded-pill" role="search">
                 <input class="form-search dark-half rounded-start-pill" type="search" placeholder="Search..." v-model="searchText" aria-label="Search"/>
-                <button class="btn-search dark-half rounded-end-pill" type="submit"><img src="../assets/imgs/search-light.png" alt="Search" width="20px"></button>
+                <button class="btn-search dark-half rounded-end-pill" type="submit"><img src="../assets/imgs/search-light.png" alt="Search" width="25px"></button>
             </form>
             <div class="offcanvas offcanvas-end dark-hard" data-bs-scroll="true" tabindex="-1" id="navbar" aria-labelledby="navbarLabel">
                 <div class="offcanvas-header">
@@ -79,7 +79,7 @@ export default {
 }
 
 .form .btn-search {
-    border: none; padding: 0 12px;
+    border: none; padding: 0 14px;
 }
 
 .navbar-nav {
