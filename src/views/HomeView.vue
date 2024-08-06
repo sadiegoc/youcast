@@ -1,7 +1,7 @@
 <template>
     <div class="home" :class="{ dark }">
         <div class="container-fluid">
-            <div class="row align-items-start">
+            <div class="row row-cols-1 row-cols-sm-auto align-items-start justify-content-center">
                 <div class="col">
                     <PodcastCard :dark="this.dark" @click="startPodcast()"/>
                 </div>

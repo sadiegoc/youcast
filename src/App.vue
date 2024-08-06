@@ -28,7 +28,7 @@ export default {
 
 <style>
 :root {
-    --bg-hard-dark: #252525;
+    --bg-hard-dark: #151515;
     --bg-half-dark: #404040;
     --bg-soft-dark: #505050;
 
