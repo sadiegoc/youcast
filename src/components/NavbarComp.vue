@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar" :class="{ dark }">
-        <div class="container-lg d-flex justify-content-between">
+        <div class="container-fluid d-flex justify-content-between">
             <router-link class="navbar-brand" to="/home">YouCast</router-link>
             <form :class="{ dark }" class="form d-flex flex-grow-1 rounded-pill" role="search">
                 <input class="form-search rounded-start-pill" type="search" placeholder="Search..." v-model="searchText" aria-label="Search"/>
@@ -10,7 +10,10 @@
                 </button>
             </form>
             <div class="offcanvas offcanvas-end" :class="{ dark }" data-bs-scroll="true" tabindex="-1" id="navbar" aria-labelledby="navbarLabel">
-                
+                <div class="offcanvas-header">
+                    <button type="button" v-if="dark" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" v-if="!dark" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav" :class="{ dark }">
                         <li class="nav-item">
@@ -111,7 +114,7 @@ export default {
 .navbar-nav.dark .nav-link.active, .navbar-nav.dark .nav-link.show { color: white; }
 
 .form .form-search {
-    border: none; padding: 8px 0 8px 20px;
+    border: none; padding: 10px 0 10px 20px;
     width: 100%;
 }
 

@@ -3,16 +3,24 @@
     <NavbarComp @theme="(theme) => toggleTheme(theme)"/>
   </header>
   <main>
-    <router-view :dark="this.dark"></router-view>
+    <section class="side">
+      <NavSide :dark="this.dark"/>
+    </section>
+    <section class="router">
+      <router-view :dark="this.dark"></router-view>
+    </section>
+    <PodcastPlay/>
   </main>
 </template>
 
 <script>
 import NavbarComp from './components/NavbarComp.vue';
+import PodcastPlay from './components/PodcastPlay.vue';
+import NavSide from './components/NavSide.vue';
 
 export default {
   name: 'App',
-  components: { NavbarComp },
+  components: { NavbarComp, PodcastPlay, NavSide },
   data () {
     return {
       dark: false
@@ -74,5 +82,13 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: var(--default-color);
   border-radius: 5px;
+}
+
+main {
+  display: flex; flex-direction: row;
+}
+
+section.router {
+  margin-bottom: 60px;
 }
 </style>
