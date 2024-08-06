@@ -66,38 +66,6 @@ export default {
   font-size: 1rem;
 }
 
-.darkHard {
-  background-color: var(--bg-hard-dark);
-}
-
-.darkHalf {
-  background-color: var(--bg-half-dark);
-}
-
-.darkSoft {
-  background-color: var(--bg-soft-dark);
-}
-
-.textWhite, .textWhite a {
-  color: white; text-decoration: none;
-}
-
-.lightHard {
-  background-color: var(--bg-hard-light);
-}
-
-.lightHalf {
-  background-color: var(--bg-half-light);
-}
-
-.lightSoft {
-  background-color: var(--bg-soft-light);
-}
-
-.textBlack, .textBlack a {
-  color: black;
-}
-
 body::-webkit-scrollbar {
   background-color: var(--bg-hard-dark);
   width: 6px;
