@@ -12,5 +12,6 @@ export default {
 .play {
     position: fixed; inset: auto 0 0 0;
     height: 60px; background-color: var(--default-color);
+
 }
 </style>

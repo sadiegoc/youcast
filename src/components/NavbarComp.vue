@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar" :class="{ dark }">
+    <nav class="navbar position-fixed" :class="{ dark }">
         <div class="container-fluid d-flex justify-content-between">
             <router-link class="navbar-brand" to="/home">YouCast</router-link>
             <form :class="{ dark }" class="form d-flex flex-grow-1 rounded-pill" role="search">
@@ -16,30 +16,27 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav" :class="{ dark }">
-                        <li class="nav-item">
+                        <li class="nav-item" data-bs-dismiss="offcanvas">
                             <router-link class="nav-link" to="/login">
                                 <img v-if="dark" src="../assets/imgs/login-white.png">
                                 <img v-if="!dark" src="../assets/imgs/login-black.png">
                                 Login
                             </router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" data-bs-dismiss="offcanvas">
                             <router-link class="nav-link" to="/register">
                                 <img v-if="dark" src="../assets/imgs/signup-white.png">
                                 <img v-if="!dark" src="../assets/imgs/signup-black.png">
                                 Sign Up
                             </router-link>
                         </li>
-                        <li class="nav-item dropdown" :class="{ dark }">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item" :class="{ dark }" data-bs-dismiss="offcanvas">
+                            <a class="nav-link" href="#" @click="toggleTheme()">
                                 <img v-if="dark" src="../assets/imgs/theme-white.png">
                                 <img v-if="!dark" src="../assets/imgs/theme-black.png">
-                                Theme
+                                <span v-if="!dark">Dark</span>
+                                <span v-if="dark">Ligth</span>
                             </a>
-                            <ul class="dropdown-menu" :class="{ dark }">
-                                <li><a class="dropdown-item" href="#" @click="darkTheme()">Dark</a></li>
-                                <li><a class="dropdown-item" href="#" @click="lightTheme()">Light</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -60,15 +57,10 @@ export default {
         }
     },
     methods: {
-        darkTheme () {
-            this.dark = true;
+        toggleTheme () {
+            this.dark = !this.dark;
             this.$emit('theme', this.dark);
-            localStorage.setItem("theme", true);
-        },
-        lightTheme () {
-            this.dark = false;
-            this.$emit('theme', this.dark);
-            localStorage.setItem("theme", false);
+            localStorage.setItem("theme", this.dark);
         }
     },
     mounted () {
@@ -112,6 +104,11 @@ export default {
 
 .nav-link.active, .nav-link.show { color: black; }
 .navbar-nav.dark .nav-link.active, .navbar-nav.dark .nav-link.show { color: white; }
+
+.navbar {
+    height: 60px; inset: 0;
+    z-index: 999;
+}
 
 .form .form-search {
     border: none; padding: 10px 0 10px 20px;

@@ -7,8 +7,112 @@
                 <img v-if="!dark" src="../assets/imgs/expand-black.svg">
             </button>
         </div>
-        <div class="navside-body">
+        <div class="navside-body" :class="{ expanded: !expanded }">
             <ul class="subscriptions" :class="{ dark }">
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
+                <li class="sub" @click="selectPodcast()">
+                    <div class="channel-logo">
+                        <img src="../assets/imgs/logo-channel.png" width="30px">
+                    </div>
+                    <div class="channel-name" v-if="expanded">
+                        the true
+                    </div>
+                </li>
                 <li class="sub" @click="selectPodcast()">
                     <div class="channel-logo">
                         <img src="../assets/imgs/logo-channel.png" width="30px">
@@ -219,16 +323,13 @@ export default {
 .navside.expanded .subscriptions .sub { display: flex; justify-content: start; }
 .navside .subscriptions .sub { display: flex; justify-content: center; }
 
-.navside.expanded {
-    width: 250px; height: 100%;
-    overflow: auto; padding: 0 8px; margin: 0;
-    display: flex; flex-direction: column;
-    justify-content: start;
-}
+.navside.expanded { width: 250px; }
+.navside { width: 60px; }
 
-.navside {
-    width: 60px; height: 100%;
-    overflow: hidden; padding: 0; margin: 0;
+.navside, .navside.expanded {
+    inset: 0; height: calc(100vh - 60px);
+    transition: width 0.3s;
+    padding: 0; margin: 60px 0 0 0;
     display: flex; flex-direction: column;
     justify-content: start;
 }
@@ -271,7 +372,13 @@ export default {
 }
 
 .navside-body {
-    margin: 20px 0;
+    overflow: auto;
+}
+
+/* NESSE CASO, O EXPANDED ESTÁ CONFIGURADO COMO !EXPANDED NO NAVSIDE-BODY */
+.navside-body.expanded::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0;
 }
 
 .subscriptions {

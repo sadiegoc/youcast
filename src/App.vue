@@ -70,16 +70,16 @@ export default {
 }
 
 * {
-  font-family: louis;
+  font-family: louis-bold;
   font-size: 1rem;
 }
 
-body::-webkit-scrollbar {
-  background-color: var(--bg-hard-dark);
+*::-webkit-scrollbar {
+  background-color: transparent;
   width: 6px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: var(--default-color);
   border-radius: 5px;
 }
@@ -89,6 +89,10 @@ main {
 }
 
 section.router {
-  margin-bottom: 60px;
+  flex-grow: 1; overflow: auto; margin-top: 60px;
+}
+
+main {
+  display: flex; flex-direction: row;
 }
 </style>

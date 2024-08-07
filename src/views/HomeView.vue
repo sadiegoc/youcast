@@ -92,4 +92,8 @@ export default {
 .home { background-color: var(--bg-hard-light); }
 .home.dark { background-color: var(--bg-hard-dark); }
 
+.home {
+    height: calc(100vh - 60px); overflow: auto;
+}
+
 </style>
