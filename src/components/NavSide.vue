@@ -1,11 +1,9 @@
 <template>
     <div class="navside" :class="{ dark, expanded }">
         <div class="navside-title">
-            <h5 v-if="expanded">My Podcasts</h5>
-            <button class="expand" :class="{ dark }" type="button" @click="toggleExpand()">
-                <img v-if="dark" src="../assets/imgs/expand-white.svg">
-                <img v-if="!dark" src="../assets/imgs/expand-black.svg">
-            </button>
+            <img v-if="dark" src="@/assets/imgs/microphone-white.png" width="28px">
+            <img v-if="!dark" src="@/assets/imgs/microphone-black.png" width="28px">
+            <h5 v-if="expanded">Podcast Channels</h5>
         </div>
         <div class="navside-body" :class="{ expanded: !expanded }">
             <ul class="subscriptions" :class="{ dark }">
@@ -280,12 +278,7 @@
 <script>
 export default {
     name: 'NavSide',
-    data () {
-        return {
-            expanded: true
-        }
-    },
-    props: ['dark'],
+    props: ['dark', 'expanded'],
     watch: {
         dark (theme) {
             return theme
@@ -294,9 +287,6 @@ export default {
     methods: {
         selectPodcast () {
             console.log('podcast channel selected')
-        },
-        toggleExpand () {
-            this.expanded = !this.expanded;
         }
     }
 }
@@ -350,20 +340,21 @@ export default {
 }
 
 .navside.expanded .navside-title {
-    margin: 0; padding: 0;
+    margin: 0 0 8px 0; padding: 8px 0 8px 10px;
     display: flex; align-items: center;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 .navside .navside-title {
-    margin: 0; padding: 0;
+    margin: 0 0 8px 0; padding: 8px 0;
     display: flex; align-items: center;
     justify-content: center;
+    border-bottom: 1px dashed var(--bg-soft-dark)
 }
 
 .navside-title h5 {
     padding: 0 0 0 10px; margin: 0;
-    font-weight: 600;
+    font-weight: 600; font-size: 1rem;
 }
 
 .navside-body {
@@ -380,14 +371,18 @@ export default {
     list-style: none; margin: 0; padding: 0;
 }
 
-.expand {
-    background: transparent; border: none;
-    width: 40px; height: 40px; padding: 0; margin: 0;
-    border-radius: 50%;
-}
+@media (max-width: 670px) {
+    .navside {
+        position: absolute;
+        transform: translateX(-250px);
+        transition: width 0.3s;
+        z-index: 998;
+    }
 
-.expand img {
-    width: 25px;
+    .navside.expanded {
+        transform: translate(0);
+        transition: width 0.3s;
+    }
 }
 
 </style>

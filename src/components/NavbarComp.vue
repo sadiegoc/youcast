@@ -1,7 +1,13 @@
 <template>
     <nav class="navbar position-fixed" :class="{ dark }">
         <div class="container-fluid d-flex justify-content-between">
-            <router-link class="navbar-brand" to="/home">YouCast</router-link>
+            <div>
+                <button class="expand" :class="{ dark }" type="button" @click="toggleNavside()">
+                    <img v-if="dark" src="../assets/imgs/expand-white.svg">
+                    <img v-if="!dark" src="../assets/imgs/expand-black.svg">
+                </button>
+                <router-link class="navbar-brand" to="/home">YouCast</router-link>
+            </div>
             <form :class="{ dark }" class="form d-flex flex-grow-1 rounded-pill" role="search">
                 <input class="form-search rounded-start-pill" type="search" placeholder="Search..." v-model="searchText" aria-label="Search"/>
                 <button class="btn-search rounded-end-pill" type="submit">
@@ -16,6 +22,13 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav" :class="{ dark }">
+                        <li class="nav-item" data-bs-dismiss="offcanvas">
+                            <router-link class="nav-link" to="/home">
+                                <img v-if="dark" src="../assets/imgs/home-white.png">
+                                <img v-if="!dark" src="../assets/imgs/home-black.png">
+                                Home
+                            </router-link>
+                        </li>
                         <li class="nav-item" data-bs-dismiss="offcanvas">
                             <router-link class="nav-link" to="/login">
                                 <img v-if="dark" src="../assets/imgs/login-white.png">
@@ -53,7 +66,8 @@ export default {
     name: 'NavbarComp',
     data () {
         return {
-            dark: true
+            dark: true,
+            expanded: true
         }
     },
     methods: {
@@ -61,6 +75,10 @@ export default {
             this.dark = !this.dark;
             this.$emit('theme', this.dark);
             localStorage.setItem("theme", this.dark);
+        },
+        toggleNavside () {
+            this.expanded = !this.expanded;
+            this.$emit('toggleNavside', this.expanded);
         }
     },
     mounted () {
@@ -90,8 +108,8 @@ export default {
 .navbar-nav, .navbar-nav a { color: black; }
 .navbar-nav.dark, .navbar-nav.dark a { color: white; }
 
-.navbar-nav.dark { border: 2px dashed var(--bg-soft-dark); border-radius: 4px; }
-.navbar-nav { border: 2px dashed var(--bg-soft-light); border-radius: 4px; }
+.navbar-nav.dark { border: 2px dashed var(--bg-soft-dark); }
+.navbar-nav { border: 2px dashed var(--bg-soft-light); }
 
 .navbar-nav.dark .nav-item:hover, .dropdown-menu.dark a:hover { background-color: var(--bg-half-dark); }
 .navbar-nav .nav-item:hover, .dropdown-menu a:hover { background-color: var(--bg-half-light); }
@@ -161,21 +179,33 @@ export default {
     border-radius: 0; border: none;
 }
 
-@media (max-width: 772px) {
-    .form {
-        width: fit-content;
-    }
+.expand {
+    background: transparent; border: none;
+    width: 50px; height: 50px; padding: 0; margin: 0 20px 0 0;
+    border-radius: 50%;
 }
 
-@media (max-width: 470px) {
+.expand:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.expand img {
+    width: 25px;
+}
+
+@media (max-width: 880px) {
+    .form {
+        width: min-content;
+    }
+
     .navbar-brand {
         display: none;
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 342px) {
     .form {
-        max-width: 200px;
+        width: 150px;
     }
 }
 </style>

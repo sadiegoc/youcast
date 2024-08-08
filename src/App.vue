@@ -1,10 +1,10 @@
 <template>
   <header>
-    <NavbarComp @theme="(theme) => toggleTheme(theme)"/>
+    <NavbarComp @theme="(theme) => toggleTheme(theme)" @toggleNavside="(expanded) => toggleNavside(expanded)"/>
   </header>
   <main>
     <section class="side">
-      <NavSide :dark="this.dark"/>
+      <NavSide :dark="this.dark" :expanded="this.expanded"/>
     </section>
     <section class="router">
       <router-view :dark="this.dark"></router-view>
@@ -23,12 +23,16 @@ export default {
   components: { NavbarComp, PodcastPlay, NavSide },
   data () {
     return {
-      dark: false
+      dark: true,
+      expanded: true
     }
   },
   methods: {
     toggleTheme (theme) {
       this.dark = theme;
+    },
+    toggleNavside (expanded) {
+      this.expanded = expanded;
     }
   }
 }
