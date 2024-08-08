@@ -7,10 +7,10 @@
       <NavSide :dark="this.dark" :expanded="this.expanded"/>
     </section>
     <section class="router">
-      <router-view :dark="this.dark"></router-view>
+      <router-view :dark="this.dark" @startPodcast="() => startPodcast()"></router-view>
     </section>
   </main>
-  <PodcastPlay/>
+  <PodcastPlay :startPod="this.startPod" @closePod="() => closePod()"/>
 </template>
 
 <script>
@@ -24,7 +24,9 @@ export default {
   data () {
     return {
       dark: true,
-      expanded: true
+      expanded: true,
+      idPodcast: null,
+      startPod: false
     }
   },
   methods: {
@@ -33,6 +35,12 @@ export default {
     },
     toggleNavside (expanded) {
       this.expanded = expanded;
+    },
+    startPodcast () {
+      this.startPod = true;
+    },
+    closePod () {
+      this.startPod = false;
     }
   }
 }

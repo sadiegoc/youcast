@@ -78,6 +78,7 @@ export default {
     methods: {
         startPodcast () {
             console.log('start podcast')
+            this.$emit('startPodcast');
         }
     },
     watch: {
