@@ -9,8 +9,8 @@
     <section class="router">
       <router-view :dark="this.dark"></router-view>
     </section>
-    <PodcastPlay/>
   </main>
+  <PodcastPlay/>
 </template>
 
 <script>
@@ -44,7 +44,10 @@ export default {
     --bg-half-light: #ddd;
     --bg-soft-light: #bbb;
 
-    --default-color: #32DE8A;
+    --bg-half-dark-hover: #808080;
+    --bg-half-light-hover: #aaa;
+
+    --default-color: #FFB200;
 
     --border-radius: 8px;
 }
@@ -76,12 +79,11 @@ export default {
 
 *::-webkit-scrollbar {
   background-color: transparent;
-  width: 6px;
+  width: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--default-color);
-  border-radius: 5px;
+  background-color: var(--bg-soft-dark);
 }
 
 main {
@@ -90,9 +92,5 @@ main {
 
 section.router {
   flex-grow: 1; overflow: auto; margin-top: 60px;
-}
-
-main {
-  display: flex; flex-direction: row;
 }
 </style>

@@ -334,14 +334,9 @@ export default {
     justify-content: start;
 }
 
-.navside::-webkit-scrollbar {
-    background-color: var(--bg-hard-dark);
-    width: 6px;
-}
-
-.navside::-webkit-scrollbar-thumb {
-    background-color: var(--default-color);
-    border-radius: 5px;
+.navside-body:hover::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
 }
 
 .navside.expanded .subscriptions .sub {
@@ -372,11 +367,11 @@ export default {
 }
 
 .navside-body {
-    overflow: auto;
+    overflow: auto; padding-bottom: 80px;
 }
 
 /* NESSE CASO, O EXPANDED ESTÁ CONFIGURADO COMO !EXPANDED NO NAVSIDE-BODY */
-.navside-body.expanded::-webkit-scrollbar {
+.navside-body::-webkit-scrollbar, .navside-body.expanded::-webkit-scrollbar {
   background-color: transparent;
   width: 0;
 }

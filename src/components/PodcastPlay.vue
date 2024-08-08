@@ -10,7 +10,7 @@ export default {
 </script>
 <style scoped>
 .play {
-    position: fixed; inset: auto 0 0 0;
+    inset: auto 0 0 0; position: fixed; display: none;
     height: 60px; background-color: var(--default-color);
 
 }

@@ -93,6 +93,7 @@ export default {
 .home.dark { background-color: var(--bg-hard-dark); }
 
 .home {
+    padding-bottom: 80px;
     height: calc(100vh - 60px); overflow: auto;
 }
 

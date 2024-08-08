@@ -28,8 +28,11 @@ export default {
 }
 </script>
 <style scoped>
-.card.dark { background-color: var(--bg-hard-dark); border: 2px solid var(--bg-hard-dark); color: white; }
-.card { background-color: var(--bg-hard-light); border: 2px solid var(--bg-hard-light); color: black; }
+.card.dark { background-color: var(--bg-hard-dark); border: 2px dashed var(--bg-half-dark); color: white; }
+.card { background-color: var(--bg-hard-light); border: 2px dashed var(--bg-half-light); color: black; }
+
+.card.dark:hover { border-color: var(--bg-half-dark-hover); }
+.card:hover { border-color: var(--bg-half-light-hover); }
 
 h5 {
     font-family: louis-bold;
@@ -45,7 +48,7 @@ p {
     cursor: pointer;
     border-radius: 0;
     padding: 10px;
-    width: 350px;
+    width: 380px;
 }
 
 
@@ -55,11 +58,6 @@ p {
 
 .card-brand img {
     border-radius: 50%
-}
-
-.card:hover {
-    border-color: var(--bg-soft-dark);
-    border-style: dashed;
 }
 
 .card-footer {
