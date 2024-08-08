@@ -62,7 +62,7 @@ export default {
 #volume {
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    width: 80px; cursor: pointer; position: relative;
+    width: 60px; cursor: pointer; position: relative;
 }
 
 #volume:hover .volume, #volume .btn-volume:active .volume {
@@ -92,7 +92,7 @@ export default {
 }
 
 .player .podcast-progress {
-    width: max-content; margin: 0 20px 0 40px;
+    width: max-content; margin: 0 15px 0 15px;
     flex-grow: 1;
 }
 
@@ -115,7 +115,7 @@ export default {
 }
 
 .close-player {
-    margin: 0 20px 0 0;
+    margin: 0 15px 0 0;
 }
 
 .close-player button {
